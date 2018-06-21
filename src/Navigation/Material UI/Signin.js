@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import 'materialize-css';
+import './Sigin.css';
 
 
 
@@ -15,6 +17,7 @@ const styles = theme => ({
     textField: {
       marginLeft: theme.spacing.unit,
       marginRight: theme.spacing.unit,
+      paddingBottom:'5px',
       width: 250,
     },
     menu: {
@@ -78,24 +81,44 @@ class Signin extends React.Component{
         const { routeChange } = this.props;
         const { classes } = this.props;
         return(
-            <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l shadow-5 center">
-                <main className="pa4 black-80 center">
+            <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l shadow-5 center ">
+                <main className="pa4 black-80  ">
                 <div className={classes.container} noValidate autoComplete="off">
                     <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                         <legend className="f2 fw6 ph0 mh0">Sign In</legend>
-                        <TextField
+                        
+
+  <div class="row">
+    <div class="col s12">
+    <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" onChange={this.onSignInEmailChange}/>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate"  onChange = {this.onSignInPasswordChange}/>
+          <label for="password">Password</label>
+        </div>
+      </div>
+     
+      
+    </div>
+  </div>
+                        {/* <TextField
                             id="name"
                             label="Email"
                             type="email"
                             className={classes.textField}
                             onChange={this.onSignInEmailChange}
                             margin="normal"
-                          />
+                          /> */}
                             {/* <div className="mt3">
                                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                                 <input onChange = {this.onSignInEmailChange} className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address"/>
                             </div> */}
-                            <TextField
+                            {/* <TextField
                                   id="password-input"
                                   label="Password"
                                   className={classes.textField}
@@ -103,19 +126,23 @@ class Signin extends React.Component{
                                   autoComplete="current-password"
                                   margin="normal"
                                   onChange = {this.onSignInPasswordChange}
-                              />
-{/*           
+                              /> */}
+                              {/*           
                                 <div className="mv3">
                                     <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                                     <input onChange = {this.onSignInPasswordChange} className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password"/>
                                 </div> */}
                     </fieldset>
-                                <Button variant="contained" 
+                    <button class="btn waves-effect waves-light" 
+                        type="submit" name="action" onClick={ this.onSubmitChange }>Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                                {/* <Button variant="contained" 
                                   color="primary" className={classes.button} 
                                   type="submit" onClick={ this.onSubmitChange } >
                                     Sign In
                                   <Icon className={classes.rightIcon}>send</Icon>
-                              </Button>
+                              </Button> */}
                                 {/* <div className="">
                                     <input onClick={ this.onSubmitChange }
                                      className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
@@ -140,62 +167,3 @@ TextField.propTypes = {
 };
 export default withStyles(styles)(Signin);
 
-// class TextFields extends React.Component {
-//     state = {
-//       name: 'Cat in the Hat',
-//       age: '',
-//       multiline: 'Controlled',
-//       currency: 'EUR',
-//     };
-  
-//     handleChange = name => event => {
-//       this.setState({
-//         [name]: event.target.value,
-//       });
-//     };
-  
-//     render() {
-//       const { classes } = this.props;
-  
-//       return (
-//         <form className={classes.container} noValidate autoComplete="off">
-//           <TextField
-//             id="name"
-//             label="Name"
-//             className={classes.textField}
-//             value={this.state.name}
-//             onChange={this.handleChange('name')}
-//             margin="normal"
-//           />
-          
-//           <TextField
-//             required
-//             id="required"
-//             label="Required"
-//             defaultValue="Hello World"
-//             className={classes.textField}
-//             margin="normal"
-//           />
-          
-//           <TextField
-//             id="password-input"
-//             label="Password"
-//             className={classes.textField}
-//             type="password"
-//             autoComplete="current-password"
-//             margin="normal"
-//           />
-          
-         
-         
-          
-//         </form>
-//       );
-//     }
-//   }
-  
-//   TextFields.propTypes = {
-//     classes: PropTypes.object.isRequired,
-//   };
-  
-//   export default withStyles(styles)(TextFields);

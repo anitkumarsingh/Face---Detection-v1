@@ -6,7 +6,7 @@ import Rank from '../Navigation/Rank/Rank';
 import Particles from 'react-particles-js';
 import FaceDetection from '../Navigation/FaceRecongination/FaceDetection';
 import SignIn from '..//Navigation/SignIn/SignIn';
-// import SignIn from '../Navigation/Material UI/Signin';
+// import SignIn from '../Navigation/Material UI/Login';
 import Register from '../Navigation/Register/Register';
 import Footer from '../Navigation/Footer/Footer';
 import './App.css';
@@ -124,6 +124,7 @@ class App extends React.Component {
                         }
                     }}
                 />
+               
                <Navigation isSignedIn ={this.state.isSignedIn} routeChange={this.routeChangeHandler}/>
                { this.state.route === 'home' ?
                 <div>
@@ -138,7 +139,8 @@ class App extends React.Component {
                     )
                     
                  }
-                <Footer/>
+                 { this.state.route !=='home' ? <Footer/>:null }
+                 
             </div>
              );
     }  

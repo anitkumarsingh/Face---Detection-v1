@@ -20,7 +20,7 @@ class Register  extends React.Component{
         this.setState({password:event.target.value})
     }
     onRegisterSubmission = () =>{
-        fetch('http://localhost:5000/register',{
+        fetch('https://face-detection-app-anit.herokuapp.com/register',{
             method: 'post',
             headers: {'Content-Type' : 'application/json'},
             body:JSON.stringify({

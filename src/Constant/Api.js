@@ -1,0 +1,1 @@
+export const BASH_URL='https://face-detection-app-anit.herokuapp.com'
